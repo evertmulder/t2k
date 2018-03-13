@@ -50,7 +50,7 @@ def main():
                         block_size = 1024
                         wrote = 0 
                         with open(filenameTmp, 'wb') as f:
-                            for data in tqdm(r.iter_content(block_size), total=math.ceil(total_size//block_size) , unit='KB', unit_scale=True):
+                            for data in tqdm(r.iter_content(block_size), total=math.ceil(total_size//block_size) , unit='KB', unit_scale=True, desc=filename):
                                 wrote = wrote  + len(data)
                                 f.write(data)
                         if total_size != 0 and wrote != total_size:
